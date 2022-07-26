@@ -22,15 +22,15 @@ class ActorsActivity : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.IO){
             actors = actorsRepository.getAllRemoteActors()
             withContext(Dispatchers.Main){
-                setupRecyclerView()
+                preselectSavedActors()
             }
         }
-        setupRecyclerView()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actors)
+        setOnClickListeners()
         getActors()
     }
 

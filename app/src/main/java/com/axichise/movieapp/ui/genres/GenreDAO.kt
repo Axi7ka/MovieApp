@@ -1,12 +1,16 @@
 package com.axichise.movieapp.ui.genres
 
 import androidx.room.*
+import com.axichise.movieapp.ui.actors.Actors
 
 @Dao
 interface GenreDAO {
 
     @Query("SELECT * from genres")
     fun getAll(): List<Genre>
+
+//    @Query("SELECT * from actors")
+//    fun getAllIds(): List<Int>
 
     @Insert
     fun save(genre: Genre)
@@ -28,4 +32,7 @@ interface GenreDAO {
         deleteAll()
         saveAll(genres)
     }
+
+    @Query("SELECT COUNT(id) FROM genres")
+    fun getCount() :Int
 }

@@ -12,4 +12,6 @@ import com.axichise.movieapp.database.Database
         fun deleteAll() = actorsDAO.deleteAll()
         fun deleteAll(actors: List<Actors>) = actorsDAO.deleteAll(actors)
         fun replaceAll(actors: List<Actors>) = actorsDAO.replaceAll(actors)
-}
+        fun getCount() = actorsDAO.getCount()
+
+ }

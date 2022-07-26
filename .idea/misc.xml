@@ -16,11 +16,20 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/activity_on_boarding_screen.xml" value="0.20878623188405798" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/activity_search_screen.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/activity_tabbed_main.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/actors_name.xml" value="0.16893115942028986" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/app_bar_search_screen.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/content_search_screen.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/fragment_saved_movies.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/fragment_search_movies.xml" value="0.13854166666666667" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/fragment_slideshow.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/fragment_tabbed_main.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/item_actors.xml" value="0.21784420289855072" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/item_genre.xml" value="0.2" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/item_movies.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/nav_header_search_screen.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/menu/activity_main_drawer.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/menu/search_screen.xml" value="0.1" />
       </map>
     </option>

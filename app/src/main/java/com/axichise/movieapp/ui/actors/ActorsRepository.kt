@@ -20,5 +20,7 @@ class ActorsRepository private constructor() {
     fun deleteAllLocal() = actorsLocalDataSource.deleteAll()
     fun deleteAllLocal(actors: List<Actors>) = actorsLocalDataSource.deleteAll(actors)
     fun replaceAllLocal(actors: List<Actors>) = actorsLocalDataSource.replaceAll(actors)
+    fun getCount() = actorsLocalDataSource.getCount()
+
 }
 
