@@ -7,19 +7,14 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.axichise.movieapp.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.axichise.movieapp.ui.search_movies.SearchMoviesFragment"
+        android:label="@string/menu_search_movies"
+        tools:layout="@layout/fragment_search_movies" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.axichise.movieapp.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:name="com.axichise.movieapp.ui.SavedMovies.SavedMoviesFragment"
+        android:label="@string/menu_save_movies"
+        tools:layout="@layout/fragment_saved_movies" />
 
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.axichise.movieapp.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
 </navigation>
