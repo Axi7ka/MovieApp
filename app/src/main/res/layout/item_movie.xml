@@ -2,37 +2,37 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/parent"
+    android:id="@id/parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
-        android:id="@+id/actorIcon"
+        android:id="@+id/movieIcon"
         android:layout_width="80dp"
         android:layout_height="80dp"
         tools:srcCompat="@tools:sample/avatars"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_goneMarginStart="16dp" />
+        android:layout_margin="8dp" />
 
     <TextView
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/actorIcon"
+        app:layout_constraintStart_toEndOf="@+id/movieIcon"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="16dp"
-        tools:text="Movie Title" />
-
+        tools:text="Movie Title"
+        android:layout_margin="8dp" />
     <TextView
         android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/actorIcon"
-        app:layout_constraintTop_toBottomOf="@+id/tvName"
-        android:layout_margin="16dp"
-        tools:text="Description" />
+        app:layout_constraintStart_toEndOf="@+id/movieIcon"
+        app:layout_constraintTop_toBottomOf="@id/tvName"
+        tools:text="Description"
+        android:layout_margin="8dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

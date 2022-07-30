@@ -28,7 +28,6 @@ interface ActorsDAO {
         deleteAll()
         saveAll(actors)
     }
-
-    @Query("SELECT COUNT(id) FROM genres")
-    fun getCount() :Int
+    @Query("SELECT COUNT(id) FROM actors")
+    fun getCount(): Int
 }

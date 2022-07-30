@@ -29,7 +29,8 @@ class GenresAdapter(private val genreList: List<Genre>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val genre = genreList[position]
         holder.genreName.text = genre.name
-        selectGenre(holder, genre)
+
+        selectGenre(holder,genre)
 
         holder.parentView.setOnClickListener {
             genre.isSelected = !genre.isSelected

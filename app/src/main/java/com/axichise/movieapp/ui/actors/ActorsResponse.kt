@@ -8,7 +8,7 @@ class ActorsResponse (
     @SerializedName("name")
     var name: String,
     @SerializedName("profile_path")
-    var photo: String
-        )
+    var profile_path: String?,
+)
 
 

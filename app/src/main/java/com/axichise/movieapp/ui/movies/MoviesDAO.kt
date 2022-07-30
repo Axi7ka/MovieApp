@@ -4,18 +4,17 @@ import androidx.room.*
 
 @Dao
 interface MoviesDAO {
-
-    @Query("SELECT * from movies")
+    @Query("SELECT * FROM movies")
     fun getAll(): List<Movies>
 
     @Insert
-    fun save(movies: Movies)
+    fun save(movie: Movies)
 
     @Insert
     fun saveAll(movies: List<Movies>)
 
     @Delete
-    fun delete(movies: Movies)
+    fun delete(movie: Movies)
 
     @Delete
     fun deleteAll(movies: List<Movies>)
@@ -24,11 +23,11 @@ interface MoviesDAO {
     fun deleteAll()
 
     @Transaction
-    fun replaceAll(movies: List<Movies>){
+    fun replaceAll(movies: List<Movies>) {
         deleteAll()
         saveAll(movies)
     }
 
-    @Query("SELECT COUNT(id) FROM genres")
-    fun getCount() :Int
+    @Query("SELECT COUNT(id) FROM movies")
+    fun getCount() : Int
 }

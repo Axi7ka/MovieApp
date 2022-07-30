@@ -1,6 +1,5 @@
 package com.axichise.movieapp.ui.movies
 
-
 class MoviesMapper {
     fun map(moviesResponse: MoviesResponse): Movies {
         return Movies(
@@ -10,7 +9,6 @@ class MoviesMapper {
             overview = moviesResponse.overview,
             release_date = moviesResponse.release_date,
             isSelected = false
-
         )
     }
 }

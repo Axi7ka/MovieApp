@@ -1,9 +1,6 @@
 package com.axichise.movieapp.ui.actors
 
 import com.axichise.movieapp.network.executeAndDeliver
-import com.axichise.movieapp.ui.genres.Genre
-import com.axichise.movieapp.ui.genres.GenreMapper
-import com.axichise.movieapp.ui.genres.GenresAPIService
 import com.axichise.movieapp.ui.utils.Constants.API_KEY
 import com.axichise.movieapp.ui.utils.Constants.LANGUAGE
 

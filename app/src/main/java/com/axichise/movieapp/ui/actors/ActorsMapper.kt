@@ -6,7 +6,7 @@ class ActorsMapper {
         return Actors(
             id = actorsResponse.id,
             name = actorsResponse.name,
-            photo = actorsResponse.photo,
+            profile_path = actorsResponse.profile_path,
             isSelected = false
         )
     }

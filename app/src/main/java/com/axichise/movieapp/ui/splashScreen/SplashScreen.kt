@@ -22,8 +22,10 @@ class SplashActivity : AppCompatActivity() {
 
     private var handler: Handler? = null
     private var runnable: Runnable? = null
+
     private val genresRepository = GenresRepository.instance
     private val actorsRepository = ActorsRepository.instance
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,13 +38,11 @@ class SplashActivity : AppCompatActivity() {
         runnable = Runnable {
             openNextScreen()
         }
-
         handler?.postDelayed(runnable!!, DELAY)
     }
 
     private fun openNextScreen() {
         isSaved()
-
         finish()
     }
 
@@ -55,13 +55,13 @@ class SplashActivity : AppCompatActivity() {
             }
         }
     }
-        private fun verifyIsSaved(genreCount: Int,actorsCount:Int){
-            val isSaved = genreCount >0 && actorsCount > 0
-            if(isSaved)
-                SearchScreenActivity.open(this)
-            else
-                OnBoarding.open(this)
 
+    private fun verifyIsSaved(genreCount: Int, actorsCount: Int) {
+        val isSaved = genreCount > 0 && actorsCount > 0
+        if (isSaved)
+            SearchScreenActivity.open(this)
+        else
+            OnBoarding.open(this)
     }
 
     override fun onDestroy() {

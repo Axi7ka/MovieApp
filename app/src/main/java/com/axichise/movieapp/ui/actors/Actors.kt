@@ -3,7 +3,6 @@ package com.axichise.movieapp.ui.actors
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.axichise.movieapp.ui.genres.Genre
 import org.jetbrains.annotations.NonNls
 
 @Entity(tableName ="actors")
@@ -16,8 +15,8 @@ data class Actors (
     @ColumnInfo(name ="name")
     var name: String,
 
-    @ColumnInfo(name = "photo")
-    var photo: String,
+    @ColumnInfo(name = "profile_path")
+    var profile_path: String?,
 
     @ColumnInfo(name ="isSelected")
     var isSelected: Boolean
@@ -25,6 +24,6 @@ data class Actors (
     override fun equals(other: Any?) = (other is Actors) && id == other.id
 
     override fun toString(): String {
-        return "Actors(id=$id, name='$name', isSelected=$isSelected)"
+        return "Actors(id=$id, name='$name',profile_patth = '$profile_path, isSelected=$isSelected)"
     }
 }

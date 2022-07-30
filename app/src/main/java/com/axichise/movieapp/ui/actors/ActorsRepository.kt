@@ -2,7 +2,6 @@ package com.axichise.movieapp.ui.actors
 
 import com.axichise.movieapp.database.Database
 import com.axichise.movieapp.network.APIClient
-import com.axichise.movieapp.ui.genres.Genre
 
 class ActorsRepository private constructor() {
     companion object {
@@ -21,6 +20,5 @@ class ActorsRepository private constructor() {
     fun deleteAllLocal(actors: List<Actors>) = actorsLocalDataSource.deleteAll(actors)
     fun replaceAllLocal(actors: List<Actors>) = actorsLocalDataSource.replaceAll(actors)
     fun getCount() = actorsLocalDataSource.getCount()
-
 }
 

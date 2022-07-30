@@ -3,7 +3,6 @@ package com.axichise.movieapp.database
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.axichise.movieapp.MovieDetailsScreen
 import com.axichise.movieapp.ui.actors.Actors
 import com.axichise.movieapp.ui.actors.ActorsDAO
 import com.axichise.movieapp.ui.genres.Genre

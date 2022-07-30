@@ -21,7 +21,11 @@ class TabbedMainActivity : AppCompatActivity() {
         binding = ActivityTabbedMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
+        val viewPager: ViewPager = binding.viewPager
+        viewPager.adapter = sectionsPagerAdapter
+        val tabs: TabLayout = binding.tabs
+        tabs.setupWithViewPager(viewPager)
         val fab: FloatingActionButton = binding.fab
 
         fab.setOnClickListener { view ->
