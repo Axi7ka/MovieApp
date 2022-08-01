@@ -105,8 +105,8 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                if(newText?.length!! >= 1) {
-                    getSearchedMovies(newText)
+                if((newText?.length ?:0) >= 1) {
+                    getSearchedMovies(newText?:"")
                 }
                 else
                     getMovies()
@@ -118,7 +118,8 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
         GlobalScope.launch (Dispatchers.IO) {
             movies = moviesRepository.getAllSearchedMovies(query)
             withContext(Dispatchers.Main){
-                setupRecyclerView()
+   //             setupRecyclerView()
+                binding.rvMovies.adapter=MoviesAdapter(movies)
             }
         }
     }
