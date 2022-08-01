@@ -13,19 +13,19 @@ data class Movies(
     @NonNull
 
     @ColumnInfo(name = "id")
-    var id: Int,
+    var id: Int?,
 
     @ColumnInfo(name = "title")
-    var title: String,
+    var title: String?,
 
     @ColumnInfo(name = "poster_path")
-    var poster_path: String,
+    var poster_path: String?,
 
     @ColumnInfo(name = "overview")
-    var overview: String,
+    var overview: String?,
 
     @ColumnInfo(name = "release_date")
-    var release_date: String,
+    var release_date: String?,
 
     @ColumnInfo(name = "isSelected")
     var isSelected: Boolean

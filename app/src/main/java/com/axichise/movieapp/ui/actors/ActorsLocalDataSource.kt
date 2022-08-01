@@ -6,6 +6,7 @@ import com.axichise.movieapp.database.Database
         private val actorsDAO: ActorsDAO = database.movieAppDatabase.actorsDao()
 
         fun getAll() = actorsDAO.getAll()
+        fun getAllIds() = actorsDAO.getAllIds()
         fun save(actors: Actors) = actorsDAO.save(actors)
         fun saveAll(actors: List<Actors>) = actorsDAO.saveAll(actors)
         fun delete(actors: Actors) = actorsDAO.delete(actors)
