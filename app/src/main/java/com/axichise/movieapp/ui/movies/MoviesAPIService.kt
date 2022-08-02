@@ -10,8 +10,8 @@ interface MoviesAPIService {
     fun getMovies(
         @Query("api_key") apiKey: String,
         @Query("language") language: String,
-        @Query("query") query: String
-
+        @Query("with_cast") withCast: String,
+        @Query("with_genres") withGenres: String
     ): Call<MoviesListResponse>
 
     @GET("search/movie")

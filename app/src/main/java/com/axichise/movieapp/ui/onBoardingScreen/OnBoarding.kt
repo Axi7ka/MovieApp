@@ -6,10 +6,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.axichise.movieapp.R
+import com.axichise.movieapp.SearchScreenActivity
 import com.axichise.movieapp.ui.actors.ActorsActivity
+import com.axichise.movieapp.ui.actors.ActorsRepository
 import com.axichise.movieapp.ui.genres.GenresActivity
+import com.axichise.movieapp.ui.genres.GenresRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class OnBoarding : AppCompatActivity() {
+
+    private val genresRepository = GenresRepository.instance
+    private val actorsRepository = ActorsRepository.instance
 
     companion object {
         fun open(context: Context) {
@@ -34,5 +44,23 @@ class OnBoarding : AppCompatActivity() {
             startActivity(Intent(this,ActorsActivity::class.java))
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        verifyFilterIsSelected()
+    }
+
+    private fun verifyFilterIsSelected() {
+        GlobalScope.launch(Dispatchers.IO) {
+            val genreCount = genresRepository.getCount()
+            val actorCount = actorsRepository.getCount()
+            withContext(Dispatchers.Main) {
+                if (genreCount > 0 && actorCount > 0) {
+                    SearchScreenActivity.open(this@OnBoarding)
+                }
+            }
+        }
+    }
+
 
 }

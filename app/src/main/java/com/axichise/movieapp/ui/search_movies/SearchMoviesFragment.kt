@@ -54,11 +54,11 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        getQueryParams()
         getSearchedMovieQuery()
-        getQueryParas()
     }
 
-    private fun getQueryParas(){
+    private fun getQueryParams(){
         preselectSaveGenres()
     }
 
@@ -68,12 +68,10 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
             genresIds = savedGenresIds.joinToString(separator = "|"){"$it"}
 
             val savedActorsIds: List<Int> = actorsRepository.getAllLocalIds()
-            genresIds = savedActorsIds.joinToString(separator = "|"){"$it"}
+            actorsIds = savedActorsIds.joinToString(separator = "|"){"$it"}
 
-
-
-            Log.d("Test", "Rezultat: $genresIds")
-            Log.d("Test", "Rezultat: $actorsIds")
+//            Log.d("Test", "Rezultat: $genresIds")
+//            Log.d("Test", "Rezultat: $actorsIds")
             withContext(Dispatchers.Main) {
                 getMovies()
             }
@@ -82,7 +80,7 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
 
     private fun getMovies(){
         GlobalScope.launch(Dispatchers.IO){
-            movies = moviesRepository.getAllRemoteMovies()
+            movies = moviesRepository.getAllRemoteMovies(actorsIds,genresIds)
             withContext(Dispatchers.Main){
                 setupRecyclerView()
             }
@@ -118,12 +116,10 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
         GlobalScope.launch (Dispatchers.IO) {
             movies = moviesRepository.getAllSearchedMovies(query)
             withContext(Dispatchers.Main){
-   //             setupRecyclerView()
                 binding.rvMovies.adapter=MoviesAdapter(movies)
             }
         }
     }
-
 
     override fun onDestroy() {
         super.onDestroy()

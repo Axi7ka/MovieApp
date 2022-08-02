@@ -11,11 +11,11 @@ class MoviesRemoteDataSource (retrofit: Retrofit) {
     private val apiService: MoviesAPIService = retrofit.create(MoviesAPIService::class.java)
     private val movieMapper = MoviesMapper()
 
-    fun getMovies(): List<Movies> {
-        return apiService.getMovies(API_KEY, LANGUAGE, SearchManager.QUERY)
+    fun getMovies(withCast: String, withGenres: String): List<Movies> {
+        return apiService.getMovies(API_KEY, LANGUAGE, withCast, withGenres)
             .executeAndDeliver()
             .movies
-            .map { movieMapper.map(it) }
+            .map { movieMapper.map(it)}
     }
     fun getSearchedMovie(query: String): List<Movies> {
         return apiService.getSearchedMovie(API_KEY, LANGUAGE, query)
