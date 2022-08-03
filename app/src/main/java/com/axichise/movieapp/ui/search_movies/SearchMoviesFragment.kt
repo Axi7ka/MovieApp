@@ -82,6 +82,7 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
         GlobalScope.launch(Dispatchers.IO){
             movies = moviesRepository.getAllRemoteMovies(actorsIds,genresIds)
             withContext(Dispatchers.Main){
+                preselectItems()
                 setupRecyclerView()
             }
         }
@@ -116,13 +117,27 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
         GlobalScope.launch (Dispatchers.IO) {
             movies = moviesRepository.getAllSearchedMovies(query)
             withContext(Dispatchers.Main){
+                preselectItems()
                 binding.rvMovies.adapter=MoviesAdapter(movies)
             }
         }
+
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+    private fun preselectItems() {
+        GlobalScope.launch(Dispatchers.IO) {
+            val saved = moviesRepository.getAllLocalMovies()
+            withContext(Dispatchers.Main) {
+                movies.forEach {
+                    val idx = saved.indexOf(it)
+                    it.isFavorite = (idx != -1) && saved[idx].isFavorite
+                    it.isWatched = (idx != -1) && saved[idx].isWatched
+                }
+            }
+        }
     }
 }

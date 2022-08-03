@@ -8,7 +8,9 @@ class MoviesMapper {
             poster_path = moviesResponse.poster_path,
             overview = moviesResponse.overview,
             release_date = moviesResponse.release_date,
-            isSelected = false
+            isSelected = false,
+            isFavorite = false,
+            isWatched = false
         )
     }
 }

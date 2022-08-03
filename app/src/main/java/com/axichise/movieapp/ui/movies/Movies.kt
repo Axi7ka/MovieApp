@@ -28,7 +28,13 @@ data class Movies(
     var release_date: String?,
 
     @ColumnInfo(name = "isSelected")
-    var isSelected: Boolean
+    var isSelected: Boolean,
+
+    @ColumnInfo(name = "is_favorite")
+    var isFavorite: Boolean,
+
+    @ColumnInfo(name = "is_watched")
+    var isWatched: Boolean,
 ) {
     override fun equals(other: Any?) = (other is Movies) && id == other.id
 
