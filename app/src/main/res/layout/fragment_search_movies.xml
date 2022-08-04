@@ -23,7 +23,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toTopOf="@id/rv_movies"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="0dp" >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </SearchView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

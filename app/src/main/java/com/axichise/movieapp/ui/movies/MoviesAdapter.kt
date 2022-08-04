@@ -4,17 +4,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.axichise.movieapp.R
+import com.axichise.movieapp.ui.movieDetails.MovieDetailViewModel
 import com.axichise.movieapp.ui.utils.Constants
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class MoviesAdapter (private val moviesList: List<Movies>) :
+class MoviesAdapter (private val moviesList: List<Movies>,
+                     private val detailsCallback: (() -> Unit)?,
+                     private val viewModel:MovieDetailViewModel
+) :
     RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,6 +33,7 @@ class MoviesAdapter (private val moviesList: List<Movies>) :
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var favorite: Boolean = false
         var watched:Boolean = false
+        val parentView: LinearLayout = view.findViewById(R.id.parent)
         val movieName: TextView = view.findViewById(R.id.tvName)
         val movieImage: ImageView = view.findViewById(R.id.movieIcon)
         val movieOverview: TextView = view.findViewById(R.id.tvDescription)
@@ -58,6 +64,11 @@ class MoviesAdapter (private val moviesList: List<Movies>) :
             movies.isWatched = holder.watched
             updateWatchedButton(holder)
             updateDatabase(moviesList[position])
+        }
+
+        holder.parentView.setOnClickListener{
+            viewModel.currentMovieId.postValue(movies.id)
+            detailsCallback?.invoke()
         }
 
 

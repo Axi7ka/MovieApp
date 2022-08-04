@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.axichise.movieapp.R
@@ -17,6 +18,7 @@ import com.axichise.movieapp.databinding.FragmentSearchMoviesBinding
 import com.axichise.movieapp.ui.actors.ActorsRepository
 import com.axichise.movieapp.ui.genres.Genre
 import com.axichise.movieapp.ui.genres.GenresRepository
+import com.axichise.movieapp.ui.movieDetails.MovieDetailViewModel
 import com.axichise.movieapp.ui.movies.Movies
 import com.axichise.movieapp.ui.movies.MoviesAdapter
 import com.axichise.movieapp.ui.movies.MoviesRepository
@@ -37,6 +39,8 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
     private var actorsIds = ""
     private val binding get() = _binding!!
 
+    private lateinit var viewModel:MovieDetailViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -47,6 +51,8 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
 
         _binding = FragmentSearchMoviesBinding.inflate(inflater,container,false)
         val root: View = binding.root
+
+        viewModel = ViewModelProvider(requireActivity())[MovieDetailViewModel::class.java]
 
         return root
     }
@@ -92,7 +98,7 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
         val rvMovies = binding.rvMovies
         rvMovies?.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        rvMovies?.adapter = MoviesAdapter(movies)
+        rvMovies?.adapter = MoviesAdapter(movies, {navigateToMovieDetails()},viewModel)
 
     }
 
@@ -118,7 +124,7 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
             movies = moviesRepository.getAllSearchedMovies(query)
             withContext(Dispatchers.Main){
                 preselectItems()
-                binding.rvMovies.adapter=MoviesAdapter(movies)
+                binding.rvMovies.adapter=MoviesAdapter(movies, {navigateToMovieDetails()}, viewModel)
             }
         }
 
@@ -140,4 +146,10 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
             }
         }
     }
+
+    private fun navigateToMovieDetails(){
+        findNavController().navigate(R.id.fragmentMovieDetails)
+
+    }
+
 }

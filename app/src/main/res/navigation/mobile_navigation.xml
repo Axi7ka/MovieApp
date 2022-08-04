@@ -16,5 +16,9 @@
         android:name="com.axichise.movieapp.ui.SavedMovies.SavedMoviesFragment"
         android:label="@string/menu_save_movies"
         tools:layout="@layout/fragment_saved_movies" />
+    <fragment
+        android:id="@+id/fragmentMovieDetails"
+        android:name="com.axichise.movieapp.ui.movieDetails.FragmentMovieDetails"
+        android:label="FragmentMovieDetails" />
 
 </navigation>

@@ -10,6 +10,7 @@
         android:id="@+id/rv_actors"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:layout_margin="36dp"
+        android:layout_margin="30dp"
         android:layout_marginTop="704dp"
         android:src="@drawable/ic_baseline_check_circle_outline_24"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,6 +28,30 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/ivgenres"
+        android:layout_width="165dp"
+        android:layout_height="172dp"
+        app:layout_constraintBottom_toTopOf="@+id/rv_actors"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.035"
+        app:srcCompat="@drawable/vactors" />
+
+    <TextView
+        android:id="@+id/tvActors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="172dp"
+        android:text="Pick your favorite actors"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/rv_actors"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivgenres" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
