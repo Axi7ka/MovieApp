@@ -8,22 +8,24 @@
 
     <ImageView
         android:id="@+id/actorIcon"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         tools:srcCompat="@tools:sample/avatars"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_goneMarginStart="16dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="-30dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/actorIcon"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="16dp"
         tools:text="Movie Title" />
 
     <TextView

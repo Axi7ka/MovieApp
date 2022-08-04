@@ -27,22 +27,24 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/actors_name.xml" value="0.16893115942028986" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/app_bar_search_screen.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/content_search_screen.xml" value="0.1" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/fragment_favorite_list.xml" value="0.176" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/fragment_favorite_list.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/fragment_saved_movies.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/fragment_search_movies.xml" value="0.16" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/fragment_slideshow.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/fragment_tabbed_main.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/fragment_watched_list.xml" value="0.1" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/item_actors.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/item_actors.xml" value="0.16" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/item_genre.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/item_movie.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/item_movie_delete.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/item_movieold.xml" value="0.14990942028985507" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/itemm.xml" value="0.16898148148148148" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/layout/nav_header_search_screen.xml" value="0.16" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/menu/activity_main_drawer.xml" value="0.176" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/menu/search_screen.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MovieApp/app/src/main/res/xml/roundbutton.xml" value="0.16168478260869565" />
       </map>
     </option>
   </component>

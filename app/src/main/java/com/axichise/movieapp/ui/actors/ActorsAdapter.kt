@@ -47,7 +47,7 @@ class ActorsAdapter(private val actorsList: List<Actors>) :
         holder.parentView.setBackgroundColor(
             when (actor.isSelected) {
                 true -> ContextCompat.getColor(holder.parentView.context,
-                    android.R.color.holo_orange_dark
+                    android.R.color.holo_orange_light
                 )
                 else -> ContextCompat.getColor(holder.parentView.context, R.color.white)
             }
