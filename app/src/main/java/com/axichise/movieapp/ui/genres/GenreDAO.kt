@@ -27,11 +27,11 @@ interface GenreDAO {
     fun deleteAll()
 
     @Transaction
-    fun replaceAll(genres: List<Genre>){
+    fun replaceAll(genres: List<Genre>) {
         deleteAll()
         saveAll(genres)
     }
 
     @Query("SELECT COUNT(id) FROM genres")
-    fun getCount() :Int
+    fun getCount(): Int
 }

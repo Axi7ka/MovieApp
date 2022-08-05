@@ -1,6 +1,5 @@
 package com.axichise.movieapp.ui.SavedMovies
 
-import android.graphics.Movie
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -16,14 +15,15 @@ import kotlinx.coroutines.withContext
 
 class FavoriteListFragment : Fragment(R.layout.fragment_favorite_list) {
 
-    private val moviesRep : MoviesRepository = MoviesRepository.instance
-    private var movies : MutableList<Movies> = mutableListOf()
+    private val moviesRep: MoviesRepository = MoviesRepository.instance
+    private var movies: MutableList<Movies> = mutableListOf()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initializeListOfMovies(view)
     }
-    private fun setUpRecycleView(view:View){
+
+    private fun setUpRecycleView(view: View) {
         val linearLayoutManager = LinearLayoutManager(view.context)
         val recyclerView = view.findViewById<RecyclerView>(R.id.rvFavoriteMoviesList)
 
@@ -34,10 +34,10 @@ class FavoriteListFragment : Fragment(R.layout.fragment_favorite_list) {
         recyclerView.adapter = FavoriteMoviesAdapter(movies)
     }
 
-    private fun initializeListOfMovies(view:View){
-        GlobalScope.launch (Dispatchers.IO){
+    private fun initializeListOfMovies(view: View) {
+        GlobalScope.launch(Dispatchers.IO) {
             movies = moviesRep.getFavorite().toMutableList()
-            withContext(Dispatchers.Main){
+            withContext(Dispatchers.Main) {
                 setUpRecycleView(view)
             }
         }

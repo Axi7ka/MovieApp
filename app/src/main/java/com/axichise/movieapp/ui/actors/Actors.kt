@@ -5,22 +5,22 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import org.jetbrains.annotations.NonNls
 
-@Entity(tableName ="actors")
-data class Actors (
+@Entity(tableName = "actors")
+data class Actors(
     @PrimaryKey
     @NonNls
-    @ColumnInfo(name ="id")
+    @ColumnInfo(name = "id")
     var id: Int,
 
-    @ColumnInfo(name ="name")
+    @ColumnInfo(name = "name")
     var name: String,
 
     @ColumnInfo(name = "profile_path")
     var profile_path: String?,
 
-    @ColumnInfo(name ="isSelected")
+    @ColumnInfo(name = "isSelected")
     var isSelected: Boolean
-        ) {
+) {
     override fun equals(other: Any?) = (other is Actors) && id == other.id
 
     override fun toString(): String {

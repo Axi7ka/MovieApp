@@ -30,7 +30,7 @@ class GenresAdapter(private val genreList: List<Genre>) :
         val genre = genreList[position]
         holder.genreName.text = genre.name
 
-        selectGenre(holder,genre)
+        selectGenre(holder, genre)
 
         holder.parentView.setOnClickListener {
             genre.isSelected = !genre.isSelected
@@ -39,17 +39,18 @@ class GenresAdapter(private val genreList: List<Genre>) :
         }
     }
 
-    private fun selectGenre(holder: ViewHolder,genre: Genre){
+    private fun selectGenre(holder: ViewHolder, genre: Genre) {
         holder.parentView.setBackgroundColor(
             when (genre.isSelected) {
                 true -> ContextCompat.getColor(
                     holder.parentView.context, android.R.color.white
                 )
                 else -> ContextCompat.getColor(
-                    holder.parentView.context, android.R.color.white)
+                    holder.parentView.context, android.R.color.white
+                )
             }
         )
-        holder.starIcon.visibility = when(genre.isSelected){
+        holder.starIcon.visibility = when (genre.isSelected) {
             true -> View.VISIBLE
             else -> View.INVISIBLE
         }

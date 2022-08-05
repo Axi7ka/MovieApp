@@ -14,13 +14,13 @@ import kotlinx.coroutines.withContext
 
 class ActorsActivity : AppCompatActivity() {
 
-    private var actors:List<Actors> = emptyList()
+    private var actors: List<Actors> = emptyList()
     private val actorsRepository = ActorsRepository.instance
 
-    private fun getActors(){
-        GlobalScope.launch(Dispatchers.IO){
+    private fun getActors() {
+        GlobalScope.launch(Dispatchers.IO) {
             actors = actorsRepository.getAllRemoteActors()
-            withContext(Dispatchers.Main){
+            withContext(Dispatchers.Main) {
                 preselectSavedActors()
             }
         }

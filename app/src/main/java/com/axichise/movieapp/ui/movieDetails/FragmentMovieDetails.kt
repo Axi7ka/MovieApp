@@ -1,14 +1,11 @@
 package com.axichise.movieapp.ui.movieDetails
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.axichise.movieapp.R
 import com.axichise.movieapp.databinding.FragmentMovieDetailsBinding
 import com.axichise.movieapp.ui.utils.Constants
 import com.bumptech.glide.Glide
@@ -37,16 +34,17 @@ class FragmentMovieDetails : Fragment() {
         val root: View = binding.root
         return root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        GlobalScope.launch (Dispatchers.IO) {
+        GlobalScope.launch(Dispatchers.IO) {
             viewModel.movie = viewModel.getMoviesDetails()
             withContext(Dispatchers.Main) {
-                binding.tvTitle.text=viewModel.movie?.title
-                binding.tvYear.text=viewModel.movie?.releaseDate
-                binding.tvDescription.text=viewModel.movie?.overview
-
-                Glide.with(binding.ivPoster.context).load(Constants.IMAGE_URL + viewModel.movie?.posterPath)
+                binding.tvTitle.text = viewModel.movie?.title
+                binding.tvYear.text = viewModel.movie?.releaseDate
+                binding.tvDescription.text = viewModel.movie?.overview
+                Glide.with(binding.ivPoster.context)
+                    .load(Constants.IMAGE_URL + viewModel.movie?.posterPath)
                     .into(binding.ivPoster)
 
                 loadYtbVideos()
@@ -54,19 +52,22 @@ class FragmentMovieDetails : Fragment() {
         }
 
     }
-    private fun loadYtbVideos(){
-        binding.youtubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+
+    private fun loadYtbVideos() {
+        binding.youtubePlayerView.addYouTubePlayerListener(object :
+            AbstractYouTubePlayerListener() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
-                viewModel.movie?.videos?.results?.get(0)?.let { youTubePlayer.loadVideo(findYoutubeTrailer(), 0f) }
+                viewModel.movie?.videos?.results?.get(0)
+                    ?.let { youTubePlayer.loadVideo(findYoutubeTrailer(), 0f) }
             }
         })
     }
 
 
-    private fun findYoutubeTrailer() : String {
-        viewModel.movie?.videos?.results?.let{ videoList ->
-            for(video in videoList) {
-                if(video.type == "Trailer")
+    private fun findYoutubeTrailer(): String {
+        viewModel.movie?.videos?.results?.let { videoList ->
+            for (video in videoList) {
+                if (video.type == "Trailer")
                     return video.key
             }
         }

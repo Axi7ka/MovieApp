@@ -6,17 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.axichise.movieapp.R
 import com.axichise.movieapp.databinding.FragmentSearchMoviesBinding
 import com.axichise.movieapp.ui.actors.ActorsRepository
-import com.axichise.movieapp.ui.genres.Genre
 import com.axichise.movieapp.ui.genres.GenresRepository
 import com.axichise.movieapp.ui.movieDetails.MovieDetailViewModel
 import com.axichise.movieapp.ui.movies.Movies
@@ -39,7 +35,7 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
     private var actorsIds = ""
     private val binding get() = _binding!!
 
-    private lateinit var viewModel:MovieDetailViewModel
+    private lateinit var viewModel: MovieDetailViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,7 +45,7 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
         val searchMoviesViewModel =
             ViewModelProvider(this).get(SearchMoviesViewModel::class.java)
 
-        _binding = FragmentSearchMoviesBinding.inflate(inflater,container,false)
+        _binding = FragmentSearchMoviesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         viewModel = ViewModelProvider(requireActivity())[MovieDetailViewModel::class.java]
@@ -64,17 +60,17 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
         getSearchedMovieQuery()
     }
 
-    private fun getQueryParams(){
+    private fun getQueryParams() {
         preselectSaveGenres()
     }
 
     private fun preselectSaveGenres() {
         GlobalScope.launch(Dispatchers.IO) {
             val savedGenresIds: List<Int> = genresRepository.getAllLocalIds()
-            genresIds = savedGenresIds.joinToString(separator = "|"){"$it"}
+            genresIds = savedGenresIds.joinToString(separator = "|") { "$it" }
 
             val savedActorsIds: List<Int> = actorsRepository.getAllLocalIds()
-            actorsIds = savedActorsIds.joinToString(separator = "|"){"$it"}
+            actorsIds = savedActorsIds.joinToString(separator = "|") { "$it" }
 
 //            Log.d("Test", "Rezultat: $genresIds")
 //            Log.d("Test", "Rezultat: $actorsIds")
@@ -84,10 +80,10 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
         }
     }
 
-    private fun getMovies(){
-        GlobalScope.launch(Dispatchers.IO){
-            movies = moviesRepository.getAllRemoteMovies(actorsIds,genresIds)
-            withContext(Dispatchers.Main){
+    private fun getMovies() {
+        GlobalScope.launch(Dispatchers.IO) {
+            movies = moviesRepository.getAllRemoteMovies(actorsIds, genresIds)
+            withContext(Dispatchers.Main) {
                 preselectItems()
                 setupRecyclerView()
             }
@@ -98,33 +94,34 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
         val rvMovies = binding.rvMovies
         rvMovies?.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        rvMovies?.adapter = MoviesAdapter(movies, {navigateToMovieDetails()},viewModel)
+        rvMovies?.adapter = MoviesAdapter(movies, { navigateToMovieDetails() }, viewModel)
 
     }
 
-    private fun getSearchedMovieQuery(){
+    private fun getSearchedMovieQuery() {
         val search = binding.rvSearch
-        search?.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        search?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(newText: String?): Boolean {
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                if((newText?.length ?:0) >= 1) {
-                    getSearchedMovies(newText?:"")
-                }
-                else
+                if ((newText?.length ?: 0) >= 1) {
+                    getSearchedMovies(newText ?: "")
+                } else
                     getMovies()
                 return false
             }
         })
     }
-    private fun getSearchedMovies(query : String){
-        GlobalScope.launch (Dispatchers.IO) {
+
+    private fun getSearchedMovies(query: String) {
+        GlobalScope.launch(Dispatchers.IO) {
             movies = moviesRepository.getAllSearchedMovies(query)
-            withContext(Dispatchers.Main){
+            withContext(Dispatchers.Main) {
                 preselectItems()
-                binding.rvMovies.adapter=MoviesAdapter(movies, {navigateToMovieDetails()}, viewModel)
+                binding.rvMovies.adapter =
+                    MoviesAdapter(movies, { navigateToMovieDetails() }, viewModel)
             }
         }
 
@@ -134,6 +131,7 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
         super.onDestroy()
         _binding = null
     }
+
     private fun preselectItems() {
         GlobalScope.launch(Dispatchers.IO) {
             val saved = moviesRepository.getAllLocalMovies()
@@ -147,7 +145,7 @@ class SearchMoviesFragment : Fragment(R.layout.fragment_search_movies) {
         }
     }
 
-    private fun navigateToMovieDetails(){
+    private fun navigateToMovieDetails() {
         findNavController().navigate(R.id.fragmentMovieDetails)
 
     }

@@ -26,6 +26,7 @@ class OnBoarding : AppCompatActivity() {
             context.startActivity(Intent(context, OnBoarding::class.java))
         }
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_on_boarding_screen)
@@ -33,15 +34,15 @@ class OnBoarding : AppCompatActivity() {
         setClickListener()
     }
 
-    private fun setClickListener(){
+    private fun setClickListener() {
         val genresButton = findViewById<Button>(R.id.btnGenres)
         genresButton.setOnClickListener {
-            startActivity(Intent(this,GenresActivity::class.java))
+            startActivity(Intent(this, GenresActivity::class.java))
         }
 
         val actorsButton = findViewById<Button>(R.id.btnActors)
         actorsButton.setOnClickListener {
-            startActivity(Intent(this,ActorsActivity::class.java))
+            startActivity(Intent(this, ActorsActivity::class.java))
         }
     }
 
@@ -61,6 +62,5 @@ class OnBoarding : AppCompatActivity() {
             }
         }
     }
-
 
 }

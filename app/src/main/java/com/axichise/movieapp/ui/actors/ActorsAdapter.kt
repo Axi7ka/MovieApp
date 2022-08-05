@@ -23,7 +23,7 @@ class ActorsAdapter(private val actorsList: List<Actors>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_actors, parent,false)
+            .inflate(R.layout.item_actors, parent, false)
 
         return ViewHolder(view)
     }
@@ -43,10 +43,12 @@ class ActorsAdapter(private val actorsList: List<Actors>) :
 
         }
     }
+
     private fun selectActor(holder: ViewHolder, actor: Actors) {
         holder.parentView.setBackgroundColor(
             when (actor.isSelected) {
-                true -> ContextCompat.getColor(holder.parentView.context,
+                true -> ContextCompat.getColor(
+                    holder.parentView.context,
                     android.R.color.holo_orange_light
                 )
                 else -> ContextCompat.getColor(holder.parentView.context, R.color.white)

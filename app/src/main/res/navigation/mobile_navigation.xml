@@ -19,6 +19,6 @@
     <fragment
         android:id="@+id/fragmentMovieDetails"
         android:name="com.axichise.movieapp.ui.movieDetails.FragmentMovieDetails"
-        android:label="FragmentMovieDetails" />
+        android:label="Movie Details" />
 
 </navigation>

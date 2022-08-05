@@ -3,7 +3,7 @@ package com.axichise.movieapp.ui.genres
 import com.axichise.movieapp.database.Database
 import com.axichise.movieapp.network.APIClient
 
-class GenresRepository private constructor(){
+class GenresRepository private constructor() {
     companion object {
         val instance = GenresRepository()
     }

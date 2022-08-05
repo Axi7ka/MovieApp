@@ -14,7 +14,8 @@ fun Call<Void>.executeWithEmptyResponse(): Any {
     }
     throw Exception("Response wasn't successful -> $response")
 }
-fun <T: Any> Call<T>.executeAndDeliver(): T {
+
+fun <T : Any> Call<T>.executeAndDeliver(): T {
     val response: Response<T> = execute()
     if (response.isSuccessful) {
         response.body()?.let { body ->

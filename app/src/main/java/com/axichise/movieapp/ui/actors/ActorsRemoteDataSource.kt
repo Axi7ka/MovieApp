@@ -6,7 +6,7 @@ import com.axichise.movieapp.ui.utils.Constants.LANGUAGE
 
 import retrofit2.Retrofit
 
-class ActorsRemoteDataSource (retrofit: Retrofit) {
+class ActorsRemoteDataSource(retrofit: Retrofit) {
     private val apiService: ActorsApiService = retrofit.create(ActorsApiService::class.java)
     private var actorsMapper = ActorsMapper()
 

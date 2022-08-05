@@ -27,10 +27,11 @@ interface ActorsDAO {
     fun deleteAll()
 
     @Transaction
-    fun replaceAll(actors: List<Actors>){
+    fun replaceAll(actors: List<Actors>) {
         deleteAll()
         saveAll(actors)
     }
+
     @Query("SELECT COUNT(id) FROM actors")
     fun getCount(): Int
 }

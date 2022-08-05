@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.axichise.movieapp.R
 import com.axichise.movieapp.ui.movieDetails.MovieDetailViewModel
@@ -16,9 +15,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class MoviesAdapter (private val moviesList: List<Movies>,
-                     private val detailsCallback: (() -> Unit)?,
-                     private val viewModel:MovieDetailViewModel
+class MoviesAdapter(
+    private val moviesList: List<Movies>,
+    private val detailsCallback: (() -> Unit)?,
+    private val viewModel: MovieDetailViewModel
 ) :
     RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
 
@@ -28,11 +28,12 @@ class MoviesAdapter (private val moviesList: List<Movies>,
 
         return ViewHolder(view)
     }
+
     private val moviesRepository: MoviesRepository = MoviesRepository.instance
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var favorite: Boolean = false
-        var watched:Boolean = false
+        var watched: Boolean = false
         val parentView: LinearLayout = view.findViewById(R.id.parent)
         val movieName: TextView = view.findViewById(R.id.tvName)
         val movieImage: ImageView = view.findViewById(R.id.movieIcon)
@@ -40,6 +41,7 @@ class MoviesAdapter (private val moviesList: List<Movies>,
         val itemButtonFavorites: ImageView = view.findViewById(R.id.ivLikedBorder)
         val itemButtonWatched: ImageView = view.findViewById(R.id.ivSeenBorder)
     }
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val movies = moviesList[position]
         holder.movieName.text = movies.title
@@ -52,21 +54,21 @@ class MoviesAdapter (private val moviesList: List<Movies>,
         updateFavoriteButton(holder)
         updateWatchedButton(holder)
 
-        holder.itemButtonFavorites.setOnClickListener{
+        holder.itemButtonFavorites.setOnClickListener {
             holder.favorite = !holder.favorite
             movies.isFavorite = holder.favorite
             updateFavoriteButton(holder)
             updateDatabase(moviesList[position])
         }
 
-        holder.itemButtonWatched.setOnClickListener{
+        holder.itemButtonWatched.setOnClickListener {
             holder.watched = !holder.watched
             movies.isWatched = holder.watched
             updateWatchedButton(holder)
             updateDatabase(moviesList[position])
         }
 
-        holder.parentView.setOnClickListener{
+        holder.parentView.setOnClickListener {
             viewModel.currentMovieId.postValue(movies.id)
             detailsCallback?.invoke()
         }
@@ -75,18 +77,23 @@ class MoviesAdapter (private val moviesList: List<Movies>,
     }
 
     private fun updateFavoriteButton(holder: ViewHolder) {
-        holder.itemButtonFavorites.setImageResource(when(holder.favorite) {
-            true -> R.drawable.ic_liked
-            else -> R.drawable.ic_liked_border
-        })
+        holder.itemButtonFavorites.setImageResource(
+            when (holder.favorite) {
+                true -> R.drawable.ic_liked
+                else -> R.drawable.ic_liked_border
+            }
+        )
     }
 
     private fun updateWatchedButton(holder: ViewHolder) {
-        holder.itemButtonWatched.setImageResource(when(holder.watched) {
-            true -> R.drawable.ic_seen
-            else -> R.drawable.ic_seen_border
-        })
+        holder.itemButtonWatched.setImageResource(
+            when (holder.watched) {
+                true -> R.drawable.ic_seen
+                else -> R.drawable.ic_seen_border
+            }
+        )
     }
+
     private fun filterWithFlags() = moviesList.filter { it.isFavorite || it.isWatched }
 
     private fun updateDatabase(item: Movies) {

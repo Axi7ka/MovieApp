@@ -10,8 +10,8 @@ import com.axichise.movieapp.ui.genres.GenreDAO
 import com.axichise.movieapp.ui.movies.Movies
 import com.axichise.movieapp.ui.movies.MoviesDAO
 
-class Database private constructor(){
-    companion object{
+class Database private constructor() {
+    companion object {
         val instance = Database()
     }
 
@@ -20,7 +20,7 @@ class Database private constructor(){
         version = 3
     )
 
-    abstract class MovieAppDatabase: RoomDatabase(){
+    abstract class MovieAppDatabase : RoomDatabase() {
         abstract fun genresDao(): GenreDAO
         abstract fun actorsDao(): ActorsDAO
         abstract fun moviesDao(): MoviesDAO
@@ -29,10 +29,10 @@ class Database private constructor(){
     lateinit var movieAppDatabase: MovieAppDatabase
         private set
 
-    fun initialize(context: Context){
+    fun initialize(context: Context) {
         this.movieAppDatabase = Room.databaseBuilder(
             context,
-            MovieAppDatabase:: class.java,
+            MovieAppDatabase::class.java,
             "movie_app.db"
         ).fallbackToDestructiveMigration().build()
 

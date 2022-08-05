@@ -2,7 +2,7 @@ package com.axichise.movieapp.ui.movies
 
 import com.google.gson.annotations.SerializedName
 
-class MoviesResponse (
+class MoviesResponse(
 
     @SerializedName("id")
     var id: Int,
@@ -19,4 +19,4 @@ class MoviesResponse (
     @SerializedName("release_date")
     var release_date: String,
 
-)
+    )
